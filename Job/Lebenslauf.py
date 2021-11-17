@@ -1,10 +1,7 @@
 import matplotlib.pyplot as plt
-from datetime import date
 from util.json_i_o import *
 
-from paths_and_data import *
-
-dict_to_file(json_file, lebenslauf)
+lebenslauf = file_to_dict('Job/Data/lebenslauf.json')
 
 lebenslauf_list = [key for key in lebenslauf.keys()]  # (key, value) for key, value in lebenslauf
 # lebenslauf_list.insert(0, '')

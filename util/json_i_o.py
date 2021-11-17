@@ -3,7 +3,7 @@ import json
 
 def dict_to_file(file, dict):
     with open(file, 'w') as file:
-        file.write(json.dumps(dict))
+        file.write(json.dumps(dict, indent=4))
 
 
 def file_to_dict(file):
