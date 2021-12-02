@@ -22,17 +22,19 @@ body {
 
 .station {
     overflow: hidden;
-    width: 800px;
     margin: 5px;
 }
 
 .station-heading {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     margin-left: 10px;
 }
 
 .experiences {
     margin-left: 10px;
+    display:block;
+    width:600px;
+    word-wrap:break-word;
 }
 
 /* The actual timeline (the vertical ruler) */

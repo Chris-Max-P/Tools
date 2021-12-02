@@ -74,13 +74,14 @@ def get_html(lebenslauf, station, template="timeline"):
                 '</div>\n'
     else:
         html = f"""
-            <div class="station">
-                <span class="time"><b>{start.strftime('%m')}/{start.year} – {end.strftime('%m')}/{end.year}</b></span>
-                <div class="line">
-                    <div class="station-heading"><b>{station}</b></div>
-                    <div class="experiences">{lebenslauf[station]['experiences'] if 'experiences' in lebenslauf[station] else ''}</div>
-                </div>
+    <div class="station">
+        <span class="time"><b>{start.strftime('%m')}/{start.year} – {end.strftime('%m')}/{end.year}</b></span>
+        <div class="line">
+            <div class="station-heading"><b>{station}</b>
+                <div class="experiences">{lebenslauf[station]['experiences'] if 'experiences' in lebenslauf[station] else ''}</div>
             </div>
+        </div>
+    </div>
             """
     return html
 
