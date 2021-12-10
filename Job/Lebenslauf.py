@@ -32,11 +32,11 @@ def lebenslauf_to_text(lebenslauf_dict):
 def get_personal_data(data_json):
     data = file_to_dict(data_json)
     html = f"""
-            <div><b>Name:</b>       {data['name']}</div>
-            <div><b>Geburtstag:</b> {data['birthday']}</div>
-            <div><b>Adresse:</b>    {data['address']}</div>
-            <div><b>E-Mail:</b>     {data['mail']}</div>
-            <div><b>Telefon:</b>    {data['phone']}</div>
+            <div><span class="data-title">Name:</span>       <span class="data-field">{data['name']}</span></div>
+            <div><span class="data-title">Geburtstag:</span> <span class="data-field">{data['birthday']}</span></div>
+            <div><span class="data-title">Adresse:</span>    <span class="data-field">{data['address']}</span></div>
+            <div><span class="data-title">E-Mail:</span>     <span class="data-field">{data['mail']}</span></div>
+            <div><span class="data-title">Telefon:</span>    <span class="data-field">{data['phone']}</span></div>
             """
     return html
 

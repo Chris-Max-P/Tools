@@ -12,6 +12,17 @@ body {
     float: left;
 }
 
+.data-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.data-field {
+     position: absolute;
+     left: 14%;
+}
+
 .line {
   border-left: 6px solid darkblue;
   height: fit-content;
@@ -22,19 +33,22 @@ body {
 
 .station {
     overflow: hidden;
-    margin: 5px;
+    margin-top: 30px;
 }
 
 .station-heading {
     /*white-space: nowrap;*/
     margin-left: 10px;
+    width:500px;
 }
 
 .experiences {
     margin-left: 10px;
+    margin-left: 20px;
+    margin-top: 5px;
     display:block;
-    width:600px;
     word-wrap:break-word;
+    font-size: 14px;
 }
 
 /* The actual timeline (the vertical ruler) */
