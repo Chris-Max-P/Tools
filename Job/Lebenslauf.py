@@ -40,13 +40,29 @@ def get_personal_data(data_json):
             """
     return html
 
+def get_qualifications_html(skills_json):
+    skills = file_to_dict(skills_json)
+    html = ""
+    for skill in skills:
+        html += f"""
+        <div class="station">
+            <span class="sub time"><b>{skill}</b></span>
+            <div class="line">
+                <div class="station-heading">
+                    {skills[skill]}
+                </div>
+            </div>
+        </div>
+                """
+    return html
+
 def lebenslauf_to_html(template="Job/lifeline_template.html"):
     main_html = ''
     side_html = ''
     lebenslauf = file_to_dict(json)
     for station in reversed(list(lebenslauf.keys())):
         html = ''
-        html += get_html(lebenslauf, station, template=template)
+        html += get_station_html(lebenslauf, station, template=template)
 
         if not lebenslauf[station]["category"] == "Nebenjob":
             main_html += html
@@ -59,9 +75,25 @@ def lebenslauf_to_html(template="Job/lifeline_template.html"):
             new_content = content.replace('<!--main_html-->', main_html)
             new_content = new_content.replace('<!--side_html-->', side_html)
             new_content = new_content.replace('<!--personal_data-->', get_personal_data(data))
+            new_content = new_content.replace('<!--qualifications-->', get_qualifications_html(skills))
             target.write(new_content)
 
-def get_html(lebenslauf, station, template="timeline"):
+def get_exp_html(experiences):
+    html = """<ul>
+                """
+    for exp in experiences:
+        html += f"""
+        <li class="experiences">
+            <div> <span class="exp-headline">{exp}:</span> {experiences[exp]['descr'] if 'descr' in experiences[exp] else ''}</div>
+            <div> {'<span class="exp-headline">Technologien:</span> ' + experiences[exp]['technologies'] if 'technologies' in experiences[exp] else ''}</div>
+            <div> {'<span class="exp-headline">Team-Größe:</span> ' + str(experiences[exp]['team-size']) if 'team-size' in experiences[exp] else ''}</div>
+            <div> {'<span class="exp-headline">Rolle:</span> ' + experiences[exp]['role'] if 'role' in experiences[exp] else ''}</div>
+        </li>"""
+    html += """</ul>
+            """
+    return html
+
+def get_station_html(lebenslauf, station, template="timeline"):
     start = datetime.strptime(lebenslauf[station]["start"], "%Y-%m-%d")
     end = datetime.strptime(lebenslauf[station]["end"], "%Y-%m-%d")
 
@@ -78,7 +110,7 @@ def get_html(lebenslauf, station, template="timeline"):
         <span class="time"><b>{start.strftime('%m')}/{start.year} – {end.strftime('%m')}/{end.year}</b></span>
         <div class="line">
             <div class="station-heading"><b>{station}</b>
-                <div class="experiences">{lebenslauf[station]['experiences'] if 'experiences' in lebenslauf[station] else ''}</div>
+                {get_exp_html(lebenslauf[station]['experiences']) if 'experiences' in lebenslauf[station] else ''}
             </div>
         </div>
     </div>
@@ -86,9 +118,9 @@ def get_html(lebenslauf, station, template="timeline"):
     return html
 
 
-#template = 'Job/lebenslauf_template.html'
-template = 'Job/lifeline_template.html'
+template = 'Job/lebenslauf_template.html'
 htmlTargetFile = 'Job/lebenslauf.html'
 json = 'Job/Data/lebenslauf.json'
 data = 'Job/Data/personal_data.json'
-lebenslauf_to_html()
+skills = 'Job/Data/skills.json'
+lebenslauf_to_html(template)
