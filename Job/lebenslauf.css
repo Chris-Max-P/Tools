@@ -8,6 +8,11 @@ body {
     left: 26%;
 }
 
+.mid {
+    position: relative;
+    left: 20%;
+}
+
 #main {
 }
 
@@ -43,6 +48,7 @@ body {
 .station {
     overflow: hidden;
     margin-top: 30px;
+    margin-left: 40px;
 }
 
 .station-heading {
