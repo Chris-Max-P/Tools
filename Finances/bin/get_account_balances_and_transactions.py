@@ -7,12 +7,18 @@
 #     client_id = "User_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 #     client_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 # Alternatively, just hard-code them here.
-from Finances.creds import user, password, client_id, client_secret
 
 from Finances.comdirect_api.session import Session
 
 import datetime
 
+from API.Nummern.numbers import get_number
+
+domain = "comdirect"
+user = get_number(domain, "user")
+password = get_number(domain, "password")
+client_id = get_number(domain, "client_id")
+client_secret = get_number(domain, "client_secret")
 
 def compress_duplicate_spaces(s):
     s = str(s)
