@@ -10,3 +10,4 @@ def file_to_dict(file):
     with open(file, 'r') as file:
         dict = json.loads(file.read())
     return dict
+
