@@ -1,18 +1,8 @@
-#!/usr/bin/env python3
-
-# During development, you can store your credentials in bin/creds.py.
-# Just put something like the following there:
-#     user = "XXXXXXXX"
-#     password = "XXXXXX"
-#     client_id = "User_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-#     client_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-# Alternatively, just hard-code them here.
-
 from Finances.comdirect_api.session import Session
+from API.Nummern.numbers import get_number
 
 import datetime
 
-from API.Nummern.numbers import get_number
 
 domain = "comdirect"
 user = get_number(domain, "user")
