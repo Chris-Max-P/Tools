@@ -1,5 +1,5 @@
-cd ..
-echo "$PWD"
+# shellcheck disable=SC2164
+cd /home/pi/Coding/Tools
 
 case "$1" in
   eat)
