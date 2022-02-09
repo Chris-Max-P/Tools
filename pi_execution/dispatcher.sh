@@ -1,4 +1,5 @@
 cd ..
+echo "$PWD"
 
 case "$1" in
   eat)
