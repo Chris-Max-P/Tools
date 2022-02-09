@@ -1,4 +1,9 @@
 # shellcheck disable=SC2164
+if [[ "$1" == "-h" ]];
+  then echo "eat, num, bank"
+  exit 0
+fi
+
 cd /home/pi/Coding/Tools
 
 case "$1" in
