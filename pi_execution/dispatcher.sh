@@ -9,7 +9,7 @@ cd /home/pi/Coding/Tools
 case "$1" in
   eat)
     script="API.Rezepte.receipes"
-    function="from API.Rezepte.receipes import output_receipe; output_receipe()"
+    function="import API.Rezepte.receipes.output_receipe; output_receipe()"
     ;;
   num)
     script="API.Nummern.numbers"
