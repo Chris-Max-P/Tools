@@ -8,16 +8,17 @@ cd /home/pi/Coding/Tools
 
 case "$1" in
   eat)
-    script="API.receipes"
-    function="import API.Rezepte.receipes.output_receipe; output_receipe()"
+    py_mode="-c"
+    script="import API.receipes.output_receipe; output_receipe()"
     ;;
   num)
-    script="API.numbers"
+    py_mode="-m"
+    script=$'\'API.numbers\''
     ;;
   bank)
+    py_mode="-m"
     script="Finances.bin.get_account_balances_and_transactions"
     ;;
 esac
 
-python -m ${script}
-#python -c ${function}
+python ${py_mode} ${script}
