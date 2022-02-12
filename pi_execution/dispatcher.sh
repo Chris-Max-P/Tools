@@ -9,7 +9,7 @@ cd /home/pi/Coding/Tools
 case "$1" in
   eat)
     py_mode="-c"
-    script="import API.receipes.output_receipe; output_receipe()"
+    script="from API.receipes import output_receipe; output_receipe()"
     ;;
   num)
     py_mode="-m"
