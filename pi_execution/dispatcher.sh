@@ -8,11 +8,11 @@ cd /home/pi/Coding/Tools
 
 case "$1" in
   eat)
-    script="API.Rezepte.receipes"
+    script="API.receipes"
     function="import API.Rezepte.receipes.output_receipe; output_receipe()"
     ;;
   num)
-    script="API.Nummern.numbers"
+    script="API.numbers"
     ;;
   bank)
     script="Finances.bin.get_account_balances_and_transactions"
