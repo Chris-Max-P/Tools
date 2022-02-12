@@ -21,4 +21,4 @@ case "$1" in
     ;;
 esac
 
-python ${py_mode} ${script}
+python ${py_mode} "${script}"
