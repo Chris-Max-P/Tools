@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from util.json_i_o import *
 from datetime import datetime
 
-lebenslauf = file_to_dict('Job/Data/lebenslauf.json')
+lebenslauf = json_file_to_dict('Job/Data/lebenslauf.json')
 
 lebenslauf_list = [key for key in lebenslauf.keys()]  # (key, value) for key, value in lebenslauf
 # lebenslauf_list.insert(0, '')
@@ -30,7 +30,7 @@ def lebenslauf_to_text(lebenslauf_dict):
 
 
 def get_personal_data(data_json):
-    data = file_to_dict(data_json)
+    data = json_file_to_dict(data_json)
     html = f"""
             <div><span class="data-title">Name:</span>       <span class="data-field">{data['name']}</span></div>
             <div><span class="data-title">Geburtstag:</span> <span class="data-field">{data['birthday']}</span></div>
@@ -41,7 +41,7 @@ def get_personal_data(data_json):
     return html
 
 def get_qualifications_html(skills_json):
-    skills = file_to_dict(skills_json)
+    skills = json_file_to_dict(skills_json)
     html = ""
     for skill in skills:
         html += f"""
@@ -59,7 +59,7 @@ def get_qualifications_html(skills_json):
 def lebenslauf_to_html(template="Job/lifeline_template.html"):
     main_html = ''
     side_html = ''
-    lebenslauf = file_to_dict(json)
+    lebenslauf = json_file_to_dict(json)
     for station in reversed(list(lebenslauf.keys())):
         html = ''
         html += get_station_html(lebenslauf, station, template=template)

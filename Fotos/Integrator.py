@@ -3,7 +3,6 @@ import pathlib
 import datetime
 import shutil
 from util.helper_functions import choose_fitting_dir
-from paths_and_data import *
 
 file_list = os.listdir(stack)
 

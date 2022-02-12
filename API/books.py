@@ -1,8 +1,6 @@
-from util.json_i_o import dict_to_file, file_to_dict
-from paths_and_data import *
+from util.json_i_o import dict_to_json_file, json_file_to_dict
 
-
-books_dict: dict = file_to_dict(books_file)
+books_dict: dict = json_file_to_dict(books_file)
 
 
 def dict_keys_to_string(dict):
@@ -30,7 +28,7 @@ def write(category_dict):
     }
     category_dict[title] = book_dict
 
-    dict_to_file(books_file, books_dict)
+    dict_to_json_file(books_file, books_dict)
 
 
 def read(category_dict):
@@ -43,7 +41,7 @@ def remove(category_dict):
     to_remove = input("Delete entry?\n" + dict_keys_to_string(category_dict))
     category_dict.pop(to_remove)
 
-    dict_to_file(books_file, books_dict)
+    dict_to_json_file(books_file, books_dict)
 
 
 action = 'start'

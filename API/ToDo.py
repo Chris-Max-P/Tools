@@ -1,7 +1,5 @@
 from datetime import datetime
 import json
-import os
-from paths_and_data import *
 
 task_dict = {
     'task': '',

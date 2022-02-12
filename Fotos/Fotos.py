@@ -1,10 +1,9 @@
 import os
 import os.path
-import time
 import shutil
 from datetime import datetime
 import exifread
-from paths_and_data import *
+
 
 def extract_creation_date(file):
     #cr_date = datetime.strptime(time.ctime(os.path.getctime(file)), "%a %b %d %H:%M:%S %Y")

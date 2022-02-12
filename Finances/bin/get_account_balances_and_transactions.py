@@ -1,5 +1,5 @@
 from Finances.comdirect_api.session import Session
-from API.Nummern.numbers import get_number
+from API.numbers import get_number
 
 import datetime
 
