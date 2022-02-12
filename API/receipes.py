@@ -7,9 +7,7 @@ RECEIPES_JSON = os.path.join(database, "receipes.json")
 INGR = "ingredients"
 INSTR = "instructions"
 
-def output_receipe():
-    receipe_name, comma, num_persons = input(f'Enter receipe,num_persons').partition(',')
-
+def output_receipe(receipe_name, num_persons):
     receipe = json_file_to_dict(RECEIPES_JSON)
     ingredients = receipe[receipe_name][INGR]
     instructions = receipe[receipe_name][INSTR]
@@ -39,5 +37,9 @@ def input_receipe():
     receipes[receipe_name][INSTR] = input("Enter Instructions:\n")
 
     dict_to_json_file(RECEIPES_JSON, receipes)
+
+
+receipe_name, comma, num_persons = input(f'Enter receipe,num_persons').partition(',')
+output_receipe(receipe_name, num_persons)
 
 

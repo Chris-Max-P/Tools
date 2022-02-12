@@ -19,5 +19,5 @@ case "$1" in
     ;;
 esac
 
-#python -m ${script}
-python -c ${function}
+python -m ${script}
+#python -c ${function}
