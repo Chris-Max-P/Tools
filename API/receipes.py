@@ -1,5 +1,4 @@
 import os
-import argparse
 
 from util.json_i_o import *
 from util.paths_and_data import database
@@ -9,8 +8,8 @@ INGR = "ingredients"
 INSTR = "instructions"
 
 def output_receipe():
-    receipe_name, comma, num_persons = input(f'Enter receipe,num_persons:\n').partition(',')
     receipe = json_file_to_dict(RECEIPES_JSON)
+    receipe_name, comma, num_persons = input(f'Enter receipe,num_persons:\n').partition(',')
     ingredients = receipe[receipe_name][INGR]
     instructions = receipe[receipe_name][INSTR]
     print("Zutaten:")
@@ -27,10 +26,10 @@ def input_receipe():
 
     ingr_dict = {}
     while True:
-        ingredient = input("Neue Zutat: [Name] [Menge in g/ml] ")
+        ingredient = input("Neue Zutat: [Name],[Menge in g/ml] ")
         if ingredient == "":
             break
-        ingredient = ingredient.split(" ")
+        ingredient = ingredient.split(",")
         name = ingredient[0]
         amount = ingredient[1]
         ingr_dict[name] = amount
